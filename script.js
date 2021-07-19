@@ -44,6 +44,7 @@ function setup() {
   model = ml5.neuralNetwork(options);
   // new code below
 
+  saveModelButton.style("display", "none");
   createMusicSystem();
 }
 
@@ -71,7 +72,9 @@ function buildButtons() {
   });
   saveDataButton.parent(buttonDiv);
   // new code below
-
+  trainButton.style("display", "none");
+  saveDataButton.style("display", "none");
+  radioDiv.style("display", "none");
 }
 
 function createMusicSystem() {
@@ -94,7 +97,9 @@ function trainModel() {
   };
   model.train(options, whileTraining, finishedTraining);
   // new code below
-
+  trainButton.style("display", "none");
+  saveDataButton.style("display", "none");
+  radioDiv.style("display", "none");
   radioDiv.style("display", "none");
 }
 
@@ -106,7 +111,7 @@ function finishedTraining() {
   state = "prediction";
   textP.html("Step 3: Prediction");
   // new code below
-
+  saveModelButton.style("display", "inline");
 }
 
 function drawNote(note, noteColor, ellipseColor) {
